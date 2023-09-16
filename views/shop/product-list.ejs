@@ -6,10 +6,12 @@
         <%- include('../includes/navigation.ejs') %>
 
             <main>
+                <%= console.log("this is nth",prods.length )%>
                 <% if (prods.length > 0) { %>
+                    
                     <div class="grid">
                         <% for (let product of prods) { %>
-                            <article class="card product-item">
+                           <article class="card product-item">
                                 <header class="card__header">
                                     <h1 class="product__title">
                                         <%= product.title %>
@@ -28,7 +30,7 @@
                                 </div>
                                 <div class="card__actions">
 
-                                    <form action="/add-to-cart" method="POST">
+                                    <form action="/add-to-cart/<%= product.id %>" method="POST">
                                         
                                         <button class="btn">Add to Cart</button>
                                     </form>
